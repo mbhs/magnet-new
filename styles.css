@@ -55,6 +55,10 @@ body, html {
 .btn {
 	width: 200px;
 	height: 100px;
+  border-radius:100px;
+  margin:10px;
+  line-height:100px;
+  text-align:center;
 	justify-content: center;
 	color:black;
 	background-color:white;
