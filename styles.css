@@ -1,18 +1,47 @@
 :root {
-	--color1:white;
+  --bg:url(mgnt.jpg) no-repeat fixed center center;
+  --bgOverlay:rgba(0,0,0,0.85);
+  --color:black;
+  --colorIn:white;
+	--bubbleColor:rgba(255,255,255,0.6);
+  /* --bubbleShadow:0px 0px 20px rgba(255,255,255,0.5); */
+  --bubbleShadow:none;
+  --bubbleSize:65px;
+  --centerPiece:200px;
+  --btnSpacing:50px;
+  --btnSpacingOther:300px;
 }
 
 body, html {
+  font-family: 'Roboto', sans-serif;
 	height: 100%;
 	margin: 0;
 	overflow: hidden; 
-	background: #212121
+  color:var(--color);
 }
-
+#bg {
+  position:fixed;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background: var(--bg);
+  background-size:cover;
+  filter: grayscale(100%);
+}
+#bgOverlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background: var(--bgOverlay);
+}
 .container {
 	display: flex;
 	justify-content:center;
-	height: 100%;
+	height: 100vh;
 }
 
 .left-panel {
@@ -44,34 +73,35 @@ body, html {
 }
 
 .center-btn {
-	color: green;
+	background:url('mgnt.jpg') no-repeat center center;
+  background-size:cover;
+  border-radius:100%;
 	font-size:40px;
-	background-color:green;
 	position:fixed;
 	top: 50%;
 	left: 50%;
-	/* bring your own prefixes */
 	transform: translate(-50%, -50%);
-	width: 100px;
-	height: 100px;
+	width: var(--centerPiece);
+	height: var(--centerPiece);
+  box-shadow:var(--bubbleShadow);
 }
 
 .btn {
-	width: 200px;
-	height: 100px;
-  border-radius:100px;
-  margin:10px;
-  line-height:100px;
+	width: calc(var(--bubbleSize) * 2);
+	height: var(--bubbleSize);
+  border-radius:var(--bubbleSize);
+  line-height:var(--bubbleSize);
   text-align:center;
 	justify-content: center;
-	color:black;
-	background-color:white;
-	font-size:40px;
+	color:var(--color);
+	font-size:20px;
 	overflow: hidden;
 	cursor: pointer;
-	background: #ECEFF1;
+	background: var(--bubbleColor);
 	display: flex;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;
+	/* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);;*/
+  box-shadow:var(--bubbleShadow);
+  transform:translateY(-50px) !important;
 }
 
 
@@ -83,9 +113,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	right: calc(0.707*250px);
-	bottom: calc(0.707*250px);
-	transform: translate(-50px, 50px)
+	right: calc(0.707*var(--btnSpacingOther));
+	bottom: calc(0.707*var(--btnSpacingOther));
+	transform: translate(calc(-1 * var(--btnSpacing)), var(--btnSpacing))
 }
 
 #btn2 {
@@ -95,9 +125,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	right: calc(0.924*250px);
-	bottom: calc(0.383*250px);
-	transform: translate(-50px, 50px)
+	right: calc(0.924*var(--btnSpacingOther));
+	bottom: calc(0.383*var(--btnSpacingOther));
+	transform: translate(calc(-1 * var(--btnSpacing)), var(--btnSpacing))
 }
 
 #btn3 {
@@ -107,9 +137,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	right: calc(0.924*250px);
-	bottom: calc(-0.383*250px);
-	transform: translate(-50px, -50px)
+	right: calc(0.924*var(--btnSpacingOther));
+	bottom: calc(-0.383*var(--btnSpacingOther));
+	transform: translate(calc(-1 * var(--btnSpacing)), calc(-1 * var(--btnSpacing)))
 }
 
 #btn4 {
@@ -119,9 +149,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	right: calc(0.707*250px);
-	bottom: calc(-0.707*250px);
-	transform: translate(-50px, -50px)
+	right: calc(0.707*var(--btnSpacingOther));
+	bottom: calc(-0.707*var(--btnSpacingOther));
+	transform: translate(calc(-1 * var(--btnSpacing)), calc(-1 * var(--btnSpacing)))
 }
 
 #btn5 {
@@ -131,9 +161,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	left: calc(0.707*250px);
-	bottom: calc(0.707*250px);
-	transform: translate(50px, 50px)
+	left: calc(0.707*var(--btnSpacingOther));
+	bottom: calc(0.707*var(--btnSpacingOther));
+	transform: translate(var(--btnSpacing), var(--btnSpacing))
 }
 
 #btn6 {
@@ -143,9 +173,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	left: calc(0.924*250px);
-	bottom: calc(0.383*250px);
-	transform: translate(50px, 50px)
+	left: calc(0.924*var(--btnSpacingOther));
+	bottom: calc(0.383*var(--btnSpacingOther));
+	transform: translate(var(--btnSpacing), var(--btnSpacing))
 }
 
 #btn7 {
@@ -155,9 +185,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	left: calc(0.924*250px);
-	bottom: calc(-0.383*250px);
-	transform: translate(50px, -50px)
+	left: calc(0.924*var(--btnSpacingOther));
+	bottom: calc(-0.383*var(--btnSpacingOther));
+	transform: translate(var(--btnSpacing), calc(-1 * var(--btnSpacing)))
 }
 
 #btn8 {
@@ -167,9 +197,9 @@ body, html {
 	top: (-0.924 * 300)px;
 	right: (0.383 * 300)px;
 	*/
-	left: calc(0.707*250px);
-	bottom: calc(-0.707*250px);
-	transform: translate(50px, -50px)
+	left: calc(0.707*var(--btnSpacingOther));
+	bottom: calc(-0.707*var(--btnSpacingOther));
+	transform: translate(var(--btnSpacing), calc(-1 * var(--btnSpacing)))
 }
 
 /* RESEARCH POSITION IN CSS */
